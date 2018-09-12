@@ -1,0 +1,71 @@
+
+package Caixa1;
+
+import java.util.Scanner;
+
+public class Caixa1 {
+  
+    public static void main(String[] args) {
+        Scanner tcl = new Scanner(System.in);
+        double saldo = 0;
+        Caixa1 object = new Caixa1();
+        object.Menu();
+        boolean sair = false;
+        while (sair == false){
+            int opcao = tcl.nextInt();
+            switch (opcao){
+                case 1:
+                    object.VerSaldo(saldo);
+                    break;
+                case 2:
+                    saldo = object.Sacar(saldo);
+                    break;
+                case 3:
+                    saldo = object.Depositar(saldo);
+                    break;
+                case 4:
+                    sair = object.Sair(sair);
+                    break;
+                default:
+                    System.out.println("haha pensa que engana a gente digite um valor valido!");
+            }
+        }
+    }
+    public void Menu(){
+        System.out.println("Digite a opçao que vc deseja!");
+        System.out.println("");
+        System.out.println("1 - ver saldo");
+        System.out.println("2 - Sacar");
+        System.out.println("3 - Depositar");
+        System.out.println("4 - Sair");
+    }
+    public void VerSaldo(double saldo){
+        System.out.println("Seu saldo é " + saldo);
+    }
+    public double Sacar(double saldo){
+        Scanner tcl = new Scanner(System.in);
+        System.out.println("Digite o valor do saque");
+        double valor = tcl.nextInt();
+        saldo = saldo-valor;
+        return saldo;
+    }
+    public double Depositar(double saldo){
+        Scanner tcl = new Scanner(System.in);
+        System.out.println("Digite o valor do deposito");
+        double valor = tcl.nextInt();
+        saldo = saldo+valor;
+        return saldo;
+    }
+    public boolean Sair(boolean sair){
+        Scanner tcl = new Scanner(System.in);
+        System.out.println("Você realmente quer sair Sim/Nao");
+        String acao = tcl.next();
+        if (acao.equals("Sim")){
+            sair = true;
+        }
+        return sair;
+    }
+}
+    
+
+
